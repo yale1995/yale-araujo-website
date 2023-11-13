@@ -34,7 +34,7 @@ export default async function SiteLayout({ children }: HomeLayoutProps) {
             className="flex items-center gap-2 text-gray-200 bg-sky-800 hover:bg-sky-500 duration-500 px-5 py-2 rounded-md font-semibold group"
           >
             <FilePdf className="text-xl text-gray-200" />
-            Resume Download
+            Resume PDF
           </Link>
         </div>
 
