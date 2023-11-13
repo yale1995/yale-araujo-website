@@ -53,7 +53,7 @@ export function richTextFormatter(unformattedRichText: Document) {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { url } = node.data.target.fields.file
         const { description } = node.data.target.fields
-        return <Image src={`http:${url}`} description="" />
+        return <Image src={`http:${url}`} description={description ?? ''} />
       },
     },
   }
