@@ -8,7 +8,6 @@ export function ButtonAuthUser() {
 
   const signInUser = () => {
     signIn('google', {
-      redirect: true,
       callbackUrl: '/publications',
     })
   }

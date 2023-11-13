@@ -11,7 +11,6 @@ export default async function ProtectedRouter({
   children,
 }: ProtectedRoutesProps) {
   const session = await getServerSession(authOptions)
-  console.log(session)
   if (!session) redirect('/')
 
   return <Fragment>{children}</Fragment>
