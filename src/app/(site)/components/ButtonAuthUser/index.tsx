@@ -11,15 +11,11 @@ export function ButtonAuthUser() {
 
   const signInUser = useCallback(async () => {
     try {
-      const result = await signIn('google', {
+      await signIn('google', {
         redirect: false,
         callbackUrl: '/publications',
       })
       router.push('/publications')
-
-      if (result?.error) {
-        throw new Error(result?.error)
-      }
     } catch (error) {
       console.error(error)
     }

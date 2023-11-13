@@ -32,15 +32,6 @@ export const authOptions: NextAuthOptions = {
         user,
       }
     },
-
-    async signIn({ account }) {
-      if (!account?.access_token) {
-        console.error('Error on authentication!!')
-        return '/'
-      }
-
-      return true
-    },
   },
   secret: process.env.NEXTAUTH_SECRET,
 }
