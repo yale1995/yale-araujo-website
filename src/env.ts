@@ -6,7 +6,6 @@ const envSchema = z.object({
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
   NEXTAUTH_SECRET: z.string(),
-  ADD_NEW_ACCESS_TOKEN: z.string(),
   CONTENTFUL_SPACE_ID: z.string(),
   CONTENTFUL_ACCESS_TOKEN: z.string(),
 })
