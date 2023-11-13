@@ -20,6 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.className}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="-lB_lgI6pyZwILI4a10IdvgWEhkUNQ3gymxTd1sfKBY"
+        />
+      </head>
       <body>
         <AuthContext>{children}</AuthContext>
       </body>
