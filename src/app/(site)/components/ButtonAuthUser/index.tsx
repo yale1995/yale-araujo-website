@@ -12,7 +12,7 @@ export function ButtonAuthUser() {
   const signInUser = useCallback(async () => {
     try {
       await signIn('google', {
-        redirect: false,
+        redirect: true,
         callbackUrl: '/publications',
       })
       router.push('/publications')
