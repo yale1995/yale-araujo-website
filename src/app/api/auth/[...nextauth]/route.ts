@@ -23,15 +23,21 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  session: {
-    maxAge: 60 * 30, // 30 minutes
-  },
   callbacks: {
     async session({ session, user }) {
       return {
         ...session,
         user,
       }
+    },
+
+    async signIn({ account }) {
+      if (!account?.access_token) {
+        console.log(account, 'dentro do account yale henrique')
+        return '/?error=access_token'
+      }
+
+      return true
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
