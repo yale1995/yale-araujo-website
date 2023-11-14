@@ -9,9 +9,7 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      httpOptions: {
-        timeout: 40000,
-      },
+      // the profile function works to rename all data provided by google
       profile(profile: GoogleProfile) {
         return {
           id: profile.sub,
@@ -24,20 +22,12 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    // by default on next auth session only is returned {name, email}, but now is going being returned all data user: {name, email, avatar_url}
     async session({ session, user }) {
       return {
         ...session,
         user,
       }
-    },
-
-    async signIn({ account }) {
-      if (!account?.access_token) {
-        console.log(account, 'dentro do account yale henrique')
-        return '/?error=access_token'
-      }
-
-      return true
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
