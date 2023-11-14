@@ -3,6 +3,7 @@ import NextAuth, { NextAuthOptions } from 'next-auth'
 import GoogleProvider, { GoogleProfile } from 'next-auth/providers/google'
 
 export const authOptions: NextAuthOptions = {
+  debug: true,
   adapter: PrismaAdapter(),
   providers: [
     GoogleProvider({
