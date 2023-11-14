@@ -2,24 +2,21 @@
 
 import { EnvelopeSimpleOpen, Spinner } from '@/app/components/Icon'
 import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
 export function ButtonAuthUser() {
   const { status: sessionStatus } = useSession()
-  const router = useRouter()
 
   const signInUser = useCallback(async () => {
     try {
       await signIn('google', {
-        redirect: false,
+        redirect: true,
         callbackUrl: '/publications',
       })
-      router.push('/publications')
     } catch (error) {
       console.error(error)
     }
-  }, [router])
+  }, [])
 
   return (
     <button
