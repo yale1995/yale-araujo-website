@@ -1,11 +1,10 @@
 import Link from 'next/link'
 
 import { Post } from './components/Post'
-
-import { getAllPosts } from '@/service/getAllPosts'
+import { Posts } from '@/service/posts'
 
 export default async function Publications() {
-  const posts = await getAllPosts()
+  const posts = await Posts().getAll()
 
   return (
     <div className="text-gray-200 py-10 h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-700 scrollbar-thumb-rounded-full scrollbar-track-gray-900">

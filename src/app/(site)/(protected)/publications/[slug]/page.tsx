@@ -1,5 +1,6 @@
-import { getPostBySlug } from '@/service/getPostBySlug'
 import Link from 'next/link'
+
+import { Posts } from '@/service/posts'
 
 interface PublicationsProps {
   params: {
@@ -8,7 +9,7 @@ interface PublicationsProps {
 }
 
 export default async function Publication({ params }: PublicationsProps) {
-  const post = await getPostBySlug(params.slug)
+  const post = await Posts().getBySlug(params.slug)
 
   return (
     <div className="text-gray-200 pt-10 pb-20 h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-700 scrollbar-thumb-rounded-full scrollbar-track-gray-900">
